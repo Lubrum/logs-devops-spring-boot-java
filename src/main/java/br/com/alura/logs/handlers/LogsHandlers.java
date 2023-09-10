@@ -1,5 +1,10 @@
 package br.com.alura.logs.handlers;
 
+import br.com.alura.logs.dto.LogsErrorDto;
+import br.com.alura.logs.exceptions.BusinessException;
+import br.com.alura.logs.exceptions.InternalErrorException;
+import br.com.alura.logs.exceptions.NotFoundException;
+import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.WebDataBinder;
@@ -7,16 +12,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.http.HttpStatus;
-import br.com.alura.logs.dto.LogsErrorDto;
-import br.com.alura.logs.exceptions.BusinessException;
-import br.com.alura.logs.exceptions.InternalErrorException;
-import br.com.alura.logs.exceptions.NotFoundException;
 
 @RestControllerAdvice
 public class LogsHandlers {
-	
-	@InitBinder("businessException")
+
+    @InitBinder("businessException")
     protected void initBusinessExceptionBinder(WebDataBinder binder) {
         binder.setAllowedFields("detailMessage");
     }

@@ -10,14 +10,14 @@
             <timestampFormat>yyyy-MM-dd' 'HH:mm:ss.SSS</timestampFormat>
         </layout>
     </appender>
-<!--    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">-->
-<!--        <encoder>-->
-<!--            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{0} %M - %msg %rEx{short} %n</pattern>-->
-<!--        </encoder>-->
-<!--    </appender>-->
+    <!--    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">-->
+    <!--        <encoder>-->
+    <!--            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{0} %M - %msg %rEx{short} %n</pattern>-->
+    <!--        </encoder>-->
+    <!--    </appender>-->
 
     <root level="info">
-        <appender-ref ref="json-stdout" />
+        <appender-ref ref="json-stdout"/>
     </root>
-     
+
 </configuration>
