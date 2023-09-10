@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# Caso esteja no Windows, utilize o comando "ipconfig" para obter seu IP
-# Caso esteja no Linux ou MAC, utilize "ip addr show" ou "ifconfig"
-HOST='192.168.100.17:8080'
+HOST='api-cursos:8080'
 
 while true
     do
@@ -10,7 +8,7 @@ while true
 	NUMB=`expr $RANDOM % 110 + 1`
 	unset UUID
 	unset CURSO
-        
+
 	if [ $NUMB -le 20 ]; then
 	    curl http://${HOST}/cursos
         elif [ $NUMB -ge 21 ] && [ $NUMB -le 40 ] ; then

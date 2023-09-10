@@ -1,0 +1,21 @@
+{app="api-cursos",host="afe5f9d32eeb"}
+{app="api-cursos",host="afe5f9d32eeb", level="ERROR"}
+count_over_time({app="api-cursos",host="afe5f9d32eeb", level="ERROR"}[5m])
+count_over_time({app="api-cursos",host="afe5f9d32eeb", level="ERROR"}[5m]) >= 2
+count_over_time({app="api-cursos",host="afe5f9d32eeb", level="ERROR"}[5m]) >= bool 3
+sum without(){level="WARN"}
+sum without(app,host,class,message,thread){level="WARN"}
+sum without(app,host,class,message,thread) count_over_time({level="WARN"}[5m]))
+sum without(level,app,host,class,message,thread) (count_over_time({level="INFO"}[5m])) > sum without(level,app,host,class,message,thread) (count_over_time({level="WARN"}[5m]))
+sum without(level,app,host,class,message,thread) (count_over_time({level="WARN"}[5m])) > sum without(level,app,host,class,message,thread) (count_over_time({level="INFO"}[5m]))
+sum by(host)
+sum by(host) (count_over_time({app="api-cursos",level="ERROR"}[5m]))
+sum by(host) (count_over_time({app="api-cursos",level="ERROR"}[5m])) / sum by (host) (count_over_time({app="api-cursos",level="ERROR"}[5m]))
+sum by(host) (count_over_time({app="api-cursos",level="ERROR"}[5m])) / on() sum(count_over_time({app="api-cursos"}[5m]))
+max by (level) (count_over_time({app="api-cursos",level="ERROR"}[5m])) > ignoring(level) avg(count_over_time({app="api-cursos",level!="ERROR"}[5m]))
+sum by (app, level) (rate({app="api-cursos"}[5m])) / on (app) group_left sum by (app) (rate({app="api-cursos"}[5m]))
+{app="api-cursos",class="SqlExceptionHelper",level="ERROR",method="logExceptions"}
+sum(count_over_time({app="api-cursos",class="SqlExceptionHelper",level="ERROR",method="logExceptions"}[5m]))
+sum(count_over_time({app="api-cursos",class="PoolBase",level="WARN",method="isConnectionAlive"}[5m]))
+sum(count_over_time({app="api-cursos",class="SqlExceptionHelper",level="ERROR",method="logExceptions"}[5m])) >= 5
+sum(count_over_time({app="api-cursos",class="PoolBase",level="WARN",method="isConnectionAlive"}[5m])) >= 5
