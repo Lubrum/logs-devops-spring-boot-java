@@ -18,4 +18,4 @@ sum by (app, level) (rate({app="api-cursos"}[5m])) / on (app) group_left sum by 
 sum(count_over_time({app="api-cursos",class="SqlExceptionHelper",level="ERROR",method="logExceptions"}[5m]))
 sum(count_over_time({app="api-cursos",class="PoolBase",level="WARN",method="isConnectionAlive"}[5m]))
 sum(count_over_time({app="api-cursos",class="SqlExceptionHelper",level="ERROR",method="logExceptions"}[5m])) >= 5
-sum(count_over_time({app="api-cursos",class="PoolBase",level="WARN",method="isConnectionAlive"}[5m])) >= 5
+sum(count_over_time({app="api-cursos",class="DataSourceHealthIndicator",level="WARN"}[5m])) >= 5

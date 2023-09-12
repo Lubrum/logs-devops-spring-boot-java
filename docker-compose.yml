@@ -54,7 +54,7 @@ services:
       - database-api-cursos
 
   prometheus-api-cursos:
-    image: prom/prometheus:latest
+    image: prom/prometheus:v2.47.0
     user: "root:root"
     container_name: prometheus-api-cursos
     restart: unless-stopped
@@ -74,7 +74,7 @@ services:
       - api
 
   grafana-api-cursos:
-    image: grafana/grafana:10.1.1
+    image: grafana/grafana:9.5.9
     user: "root:root"
     container_name: grafana-api-cursos
     volumes:
